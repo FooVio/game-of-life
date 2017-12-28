@@ -10,14 +10,14 @@ class AppContainer extends Component {
     };
   }
 
-  nextOnClick(board) {
+  nextStep(board) {
     this.setState({
       board: tick(board)
     });
   }
 
   render() {
-    return <App board={this.state.board} nextOnClick={this.nextOnClick} />;
+    return <App board={this.state.board} nextStep={this.nextStep} context={this} />;
   }
 }
 
