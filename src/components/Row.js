@@ -1,18 +1,19 @@
 import React from 'react';
 
-function Row(props) {
-  const cellList = props.row.map((cell, cellIndex) => (
-    <td
-      data-row={props.rowIndex}
-      data-cell={cellIndex}
-      className={["cell", cell ? 'full' : 'empty'].join(" ")}>
-      &nbsp;
-    </td>
-  ));
-
-  return (
-    <tr>{cellList}</tr>
-  );
-}
+const Row = props => (
+  <tr key={props.rowIndex}>
+    {
+      props.row.map((cell, cellIndex) => (
+        <td
+          key={[props.rowIndex, cellIndex].join()}
+          data-row={props.rowIndex}
+          data-cell={cellIndex}
+          className={["cell", cell ? 'full' : 'empty'].join(" ")}>
+          &nbsp;
+        </td>
+      ))
+    }
+  </tr>
+);
 
 export default Row;

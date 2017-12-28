@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../assets/css/App.css';
+import Board from './Board';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        init
-      </div>
-    );
-  }
-}
+const App = props => (
+  <div className="App">
+    <Board board={props.board}/>
+    <button type="button" onClick={() => props.nextOnClick(props.board)}>></button>
+  </div>
+);
 
 export default App;

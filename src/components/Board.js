@@ -1,11 +1,14 @@
 import React from 'react';
 import Row from './Row';
 
-function Board(props) {
-  const board = props.board.map((row, rowIndex) => Row({ row: row, rowIndex: rowIndex }));
-  return (
-    <table className="board">{board}</table>
-  );
-}
+const Board = props => (
+  <table className="board">
+    <tbody>
+      {
+        props.board.map((row, rowIndex) => Row({ row: row, rowIndex: rowIndex }))
+      }
+    </tbody>
+  </table>
+);
 
 export default Board;
