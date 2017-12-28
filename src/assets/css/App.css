@@ -26,3 +26,18 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.full {
+  background-color: black;
+}
+
+.board {
+  margin: 150px auto 0px auto;
+  border-collapse: collapse;
+}
+
+.cell {
+  border: 1px solid black;
+  width: 15px;
+  height: 15px;
+}
