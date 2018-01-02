@@ -1,9 +1,15 @@
 import { connect } from 'react-redux';
-import { next } from '../actions';
+import { toggleCell } from '../actions';
 import Board from '../components/Board';
 
 const mapStateToProps = state => ({ board: state.board });
 
-const BoardContainer = connect(mapStateToProps)(Board);
+const mapDispatchToProps = dispatch => {
+  return {
+    onClickCell: (row, col) => dispatch(toggleCell(row, col))
+  };
+};
+
+const BoardContainer = connect(mapStateToProps, mapDispatchToProps)(Board);
 
 export default BoardContainer;
