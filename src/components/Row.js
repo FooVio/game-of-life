@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Row = props => (
-  <tr key={props.rowIndex}>
+const Row = ({ row, rowIndex }) => (
+  <tr key={rowIndex}>
     {
-      props.row.map((cell, cellIndex) => (
+      row.map((cell, cellIndex) => (
         <td
-          key={[props.rowIndex, cellIndex].join()}
-          data-row={props.rowIndex}
+          key={[rowIndex, cellIndex].join()}
+          data-row={rowIndex}
           data-cell={cellIndex}
           className={["cell", cell ? 'full' : 'empty'].join(" ")}>
           &nbsp;

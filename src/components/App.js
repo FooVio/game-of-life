@@ -1,11 +1,12 @@
 import React from 'react';
 import '../assets/css/App.css';
-import Board from './Board';
+import BoardContainer from '../containers/BoardContainer';
+import ControlPanelContainer from '../containers/ControlPanelContainer';
 
-const App = props => (
+const App = () => (
   <div className="App">
-    <Board board={props.board}/>
-    <button type="button" onClick={props.nextStep.bind(props.context, props.board)}>></button>
+    <BoardContainer />
+    <ControlPanelContainer />
   </div>
 );
 
