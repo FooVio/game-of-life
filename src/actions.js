@@ -9,5 +9,5 @@ export const next = () => ({
 });
 
 export const previous = () => ({
-  type: 'previous'
+  type: 'PREVIOUS'
 });

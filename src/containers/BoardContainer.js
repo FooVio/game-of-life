@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { toggleCell } from '../actions';
 import Board from '../components/Board';
 
-const mapStateToProps = state => ({ board: state.board });
+const mapStateToProps = state => ({ board: state[state.length - 1].board });
 
 const mapDispatchToProps = dispatch => {
   return {

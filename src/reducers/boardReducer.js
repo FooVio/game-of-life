@@ -1,31 +1,29 @@
 import { createBoard, tick } from '../lib/game';
 
-export default (state = { board: createBoard(20, 20) }, action) => {
-  switch (action.type) {
-    case 'GET_RANDOM_BOARD': {
-      return {
-        ...state,
-        board: createBoard(20, 20, true)
-      }
-    }
-    case 'TOGGLE_CELL': {
-      const newBoard = [...state.board];
-      const cellValue = state.board[action.row][action.col] ? 0 : 1;
-      newBoard[action.row][action.col] = cellValue;
+export default (state = [{ board: createBoard(20, 20) }], action) => {
+  const latest = state.slice(-1)[0];
 
-      return {
+  switch (action.type) {
+    case 'TOGGLE_CELL': {
+      const cellValue = latest.board[action.row][action.col] ? 0 : 1;
+      latest.board[action.row][action.col] = cellValue;
+
+      return [
         ...state,
-        board: newBoard
-      }
+        { board: [...latest.board] }
+      ];
     }
     case 'NEXT': {
-      return {
+      return [
         ...state,
-        board: tick(state.board)
-      }
+        { board: tick(latest.board) }
+      ];
+    }
+    case 'PREVIOUS': {
+      return state.slice(0, -1);
     }
     default: {
       return state;
     }
   }
-}
+};
